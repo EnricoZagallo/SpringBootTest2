@@ -35,8 +35,13 @@ public class FoodController {
     }
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
-        foodservice.Delete(id);
+        foodservice.delete(id);
         return new  ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @PutMapping
+    public ResponseEntity<Food> replace(@RequestBody Food food){
+        foodservice.replace(food);
+        return new ResponseEntity<Food>(HttpStatus.NO_CONTENT);
     }
 
 }
