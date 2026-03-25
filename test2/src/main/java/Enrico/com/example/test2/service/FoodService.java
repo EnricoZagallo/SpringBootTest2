@@ -34,4 +34,8 @@ public class FoodService {
         foods.add(food);
         return food;
     }
+
+    public void Delete(long id) {
+        foods.remove(findById(id));
+    }
 }

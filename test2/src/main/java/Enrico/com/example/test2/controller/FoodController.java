@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
 
 @RestController // // Indicates that this class is a REST controller
@@ -32,4 +33,10 @@ public class FoodController {
     public ResponseEntity<Food> save(@RequestBody Food food){
         return new ResponseEntity<Food>(foodservice.save(food),HttpStatus.CREATED);
     }
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id){
+        foodservice.Delete(id);
+        return new  ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
